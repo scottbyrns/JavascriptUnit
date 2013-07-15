@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+
+		<script>
+		
+		
+		
+		String.prototype.toUpperCaseFirstChar = function() {
+		    return this.substr( 0, 1 ).toUpperCase() + this.substr( 1 );
+		}
+
+		String.prototype.toLowerCaseFirstChar = function() {
+		    return this.substr( 0, 1 ).toLowerCase() + this.substr( 1 );
+		}
+
+		String.prototype.toUpperCaseEachWord = function( delim ) {
+		    delim = delim ? delim : ' ';
+		    return this.split( delim ).map( function(v) { return v.toUpperCaseFirstChar() } ).join( delim );
+		}
+
+		String.prototype.toLowerCaseEachWord = function( delim ) {
+		    delim = delim ? delim : ' ';
+		    return this.split( delim ).map( function(v) { return v.toLowerCaseFirstChar() } ).join( delim );
+		}
+		
+		String.prototype.toUpperCaseSentenceForm = function () {
+			var str = this;
+		    var out = str.replace(/^\s*/, "");  // strip leading spaces
+		    out = out.replace(/^[a-z]|[^\s][A-Z]/g, function(str, offset) {
+		        if (offset == 0) {
+		            return(str.toUpperCase());
+		        } else {
+		            return(str.substr(0,1) + " " + str.substr(1).toUpperCase());
+		        }
+		    });
+		    return(out);
+
+		}
+		
+
+		</script>
+ 
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	    <meta charset="utf-8">
+	    <title>Collaborate IDE - Javascript Unit</title>
+	    <meta name="description" content="A collaborative cloud IDE and runtime.">
+	    <meta name="author" content="Scott Byrns">
+
+	</head>
+	
+	<body id="wrapper" data-widget="collaborate-controller">
+
+		<!-- ************************************************************
+		
+				Main Dialog Instance
+		
+		************************************************************ -->
+		<header>
+		    <hgroup>
+		        <h1>
+		            Collaborate IDE - Javascript Unit
+		        </h1>
+		    </hgroup>
+			<nav>
+				<button class="toggle-view">Run Test Suite</button>
+			</nav>
+
+		</header>
+		
+		<article data-widget="test-dashboard" data-group="app">
+
+		</article>
+
+
+		<!-- ************************************************************
+
+				Footer
+
+		************************************************************ -->
+		<footer>
+		    <address>
+		        Powered by <a href="#">Collaborate</a> &copy; 2013 Scott Byrns
+		    </address>
+		</footer>
+
+		
+			
+			
+			
+			
+		<script src="classes.js"> </script>
+		<script src="core.js"> </script>
+		<script src="deploy-script.js"> </script>
+		<script src="example-test-suite.js"> </script>
+
+</body>
+</html>
