@@ -53,3 +53,12 @@ var dialogsTestSuite = new TestSuite({
 	}
 });
 ```
+
+
+#####Running Tests
+
+```javascript
+
+myTestSuite.runTestSuite()
+
+```
